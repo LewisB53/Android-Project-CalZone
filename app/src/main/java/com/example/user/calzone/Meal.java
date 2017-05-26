@@ -10,7 +10,7 @@ public class Meal {
     private int caloricValue;
     private String mealType;
 
-    public Movie(String mealName, Integer caloricValue, String mealType) {
+    public Meal(String mealName, int caloricValue, String mealType) {
         this.mealName = mealName;
         this.caloricValue = caloricValue;
         this.mealType = mealType;
@@ -19,5 +19,10 @@ public class Meal {
 
     public String getName() {
         return mealName;
+    }
+
+
+    public int getCaloricValue() {
+        return caloricValue;
     }
 }

@@ -22,4 +22,13 @@ public class MealTest {
     public void getMealNameTest() {
         assertEquals((String)"DeluxeBurger", meal.getName());
     }
+
+    @Test
+    public void getCaloricValueTest() {
+        assertEquals((int)550, meal.getCaloricValue());
+    }
+
+
+
+
 }
