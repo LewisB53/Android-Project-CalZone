@@ -25,4 +25,8 @@ public class Meal {
     public int getCaloricValue() {
         return caloricValue;
     }
+
+    public String getMealType() {
+        return mealType;
+    }
 }

@@ -19,16 +19,19 @@ public class MealTest {
     }
 
     @Test
-    public void getMealNameTest() {
+    public void canGetMealNameTest() {
         assertEquals((String)"DeluxeBurger", meal.getName());
     }
 
     @Test
-    public void getCaloricValueTest() {
+    public void canGetCaloricValueTest() {
         assertEquals((int)550, meal.getCaloricValue());
     }
 
-
+    @Test
+    public void canGetMealType() {
+        assertEquals((String)"Dinner",meal.getMealType());
+    }
 
 
 }
