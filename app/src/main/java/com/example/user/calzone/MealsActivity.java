@@ -10,7 +10,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MealsActivity extends AppCompatActivity {
-    private ArrayList<Meal> list = new ArrayList<Meal>();
+    public ArrayList<Meal> list = new ArrayList<Meal>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
