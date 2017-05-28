@@ -15,6 +15,7 @@ public class DefaultMealsTest {
         DefaultMeals defaultMeals = new DefaultMeals();
         assertEquals(3, defaultMeals.getList().size());
     }
+
 }
 
 

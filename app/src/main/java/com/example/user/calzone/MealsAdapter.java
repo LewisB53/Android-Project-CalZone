@@ -42,4 +42,5 @@ public class MealsAdapter extends ArrayAdapter<Meal> {
     }
 
 
+
 }

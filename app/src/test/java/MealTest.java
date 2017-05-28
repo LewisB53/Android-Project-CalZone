@@ -25,7 +25,7 @@ public class MealTest {
 
     @Test
     public void canGetCaloricValueTest() {
-        assertEquals((int)550, meal.getCaloricValue());
+        assertEquals((Integer)550, meal.getCaloricValue());
     }
 
     @Test
