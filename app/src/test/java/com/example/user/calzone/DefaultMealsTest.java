@@ -16,7 +16,6 @@ public class DefaultMealsTest {
         assertEquals(3, defaultMeals.getList().size());
     }
 
-    @Test
 }
 
 

@@ -18,7 +18,11 @@ public class MealSelectedActivity extends AppCompatActivity {
 
 
     public void onAddButtonClicked(View button) {
-        list.add("Added 'n' cool", 400, "Dinner");
+        String addedMeal = "Custom";
+        Integer addedCaloricValue = 500;
+        String addedMealType = "Custom";
+
+        list.add(new Meal(addedMeal, addedCaloricValue, addedMealType));
 
         Intent intent = new Intent(this, MealsActivity.class);
         startActivity(intent);
