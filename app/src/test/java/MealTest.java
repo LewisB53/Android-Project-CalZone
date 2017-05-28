@@ -20,7 +20,7 @@ public class MealTest {
 
     @Test
     public void canGetMealNameTest() {
-        assertEquals((String)"DeluxeBurger", meal.getName());
+        assertEquals((String)"DeluxeBurger", meal.getMealName());
     }
 
     @Test

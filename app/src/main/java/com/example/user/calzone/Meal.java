@@ -1,12 +1,14 @@
 package com.example.user.calzone;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 26/05/2017.
  */
 
-public class Meal {
+public class Meal implements Serializable {
 
-    private String mealName ;
+    private String mealName;
     private int caloricValue;
     private String mealType;
 
@@ -16,17 +18,16 @@ public class Meal {
         this.mealType = mealType;
     }
 
-
-    public String getName() {
+    public String getMealName() {
         return mealName;
     }
 
-
-    public int getCaloricValue() {
+    public Integer getCaloricValue() {
         return caloricValue;
     }
 
     public String getMealType() {
         return mealType;
     }
+
 }
