@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MealsActivity extends AppCompatActivity {
@@ -20,6 +21,12 @@ public class MealsActivity extends AppCompatActivity {
         DefaultMeals defaultMeals = new DefaultMeals();
         list.addAll( defaultMeals.getList());
 
+        Intent intent = getIntent();
+        Serializable extra = intent.getSerializableExtra("newMeal");
+        if (null != extra) {
+            Meal newMeal = (Meal)extra;
+            list.add(newMeal);
+        }
 
         MealsAdapter mealAdapter = new MealsAdapter(this, list);
 

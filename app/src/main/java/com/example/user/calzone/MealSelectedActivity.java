@@ -4,27 +4,38 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
 public class MealSelectedActivity extends AppCompatActivity {
-    public ArrayList<Meal> list = new ArrayList<Meal>();
+    EditText addedMealEditText;
+    EditText caloricValueEditText;
+    EditText mealTypeEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_meal);
+
+        addedMealEditText = (EditText)findViewById(R.id.meal_name_text);
+        caloricValueEditText = (EditText)findViewById(R.id.caloric_value_text);
+        mealTypeEditText = (EditText)findViewById(R.id.meal_type_text);
+
+
     }
 
 
     public void onAddButtonClicked(View button) {
-        String addedMeal = "Custom";
-        Integer addedCaloricValue = 500;
-        String addedMealType = "Custom";
 
-        list.add(new Meal(addedMeal, addedCaloricValue, addedMealType));
+        String addedMeal = addedMealEditText.getText().toString();
+        String caloricValue = caloricValueEditText.getText().toString();
+        String addedMealType = mealTypeEditText.getText().toString();
+
+        Meal meal = new Meal(addedMeal, Integer.parseInt(caloricValue), addedMealType);
 
         Intent intent = new Intent(this, MealsActivity.class);
+        intent.putExtra("newMeal", meal);
         startActivity(intent);
     }
 }
