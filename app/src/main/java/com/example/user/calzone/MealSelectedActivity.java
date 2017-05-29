@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 public class MealSelectedActivity extends AppCompatActivity {
     EditText addedMealEditText;
@@ -22,8 +21,6 @@ public class MealSelectedActivity extends AppCompatActivity {
         addedMealEditText = (EditText)findViewById(R.id.meal_name_text);
         caloricValueEditText = (EditText)findViewById(R.id.caloric_value_text);
         mealTypeEditText = (EditText)findViewById(R.id.meal_type_text);
-
-
     }
 
 
@@ -36,6 +33,7 @@ public class MealSelectedActivity extends AppCompatActivity {
         Meal meal = new Meal(addedMeal, Integer.parseInt(caloricValue), addedMealType);
         Toast.makeText(this,"Meal Added", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MealsActivity.class);
+
         intent.putExtra("newMeal", meal);
         startActivity(intent);
     }

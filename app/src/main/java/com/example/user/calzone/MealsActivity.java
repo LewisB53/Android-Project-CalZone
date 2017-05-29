@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class MealsActivity extends AppCompatActivity {
     public ArrayList<Meal> list = new ArrayList<Meal>();
-
     private SharedPreferences prefs;
     private Gson gson = new Gson();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
