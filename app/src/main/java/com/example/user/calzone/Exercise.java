@@ -8,18 +8,18 @@ import java.io.Serializable;
 
 public class Exercise implements Serializable {
 
-    private String mealName;
+    private String exerciseName;
     private int caloricValue;
     private String exerciseDate;
 
-    public Exercise(String mealName, int caloricValue, String mealType) {
-        this.mealName = mealName;
+    public Exercise(String exerciseName, int caloricValue, String exerciseDate) {
+        this.exerciseName = exerciseName;
         this.caloricValue = caloricValue;
         this.exerciseDate = exerciseDate;
     }
 
-    public String getMealName() {
-        return mealName;
+    public String getExerciseName() {
+        return exerciseName;
     }
 
     public Integer getCaloricValue() {

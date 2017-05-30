@@ -15,60 +15,39 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ExercisesActivity extends AppCompatActivity {
-
-    SharedPreferences prefs;
-
-    public ArrayList<Meal> list;
-    private Gson gson;
+    public ArrayList<Exercise> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meals_list);
 
-        this.prefs = getPreferences(MODE_PRIVATE);
+//        if (list.isEmpty()) {
+            ExerciseList exerciseList = new ExerciseList();
+            list.addAll(exerciseList.getList());
+//        }
 
-        // get list of Meals from Shared prefs.
-        this.gson = new Gson();
-        String json = prefs.getString("meals", "[]");
-        TypeToken<ArrayList<Meal>> token = new TypeToken<ArrayList<Meal>>(){};
-        list = gson.fromJson(json, token.getType());
-        Log.d("Here", list.toString());
-
-        if (list.isEmpty()) {
-            DefaultMeals defaultMeals = new DefaultMeals();
-            list.addAll( defaultMeals.getList());
-        }
-
-        Intent intent = getIntent();
-        Serializable extra = intent.getSerializableExtra("newMeal");
-        if (null != extra) {
-            Meal newMeal = (Meal) extra;
-            list.add(newMeal);
-        }
-
-
-        // save list array to Shared Prefs
-        SharedPreferences.Editor editor = this.prefs.edit();
-        editor.putString("meals", this.gson.toJson(list));
-//        editor.clear();
-
-
-
-
-        MealsAdapter mealAdapter = new MealsAdapter(this, list);
-
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(mealAdapter);
+//        Intent intent = getIntent();
+//        Serializable extra = intent.getSerializableExtra("newMeal");
+//        if (null != extra) {
+//            Meal newMeal = (Meal) extra;
+//            list.add(newMeal);
+//        }
+//
+//
+//        MealsAdapter mealAdapter = new MealsAdapter(this, list);
+//
+//        ListView listView = (ListView) findViewById(R.id.list);
+//        listView.setAdapter(mealAdapter);
     }
 
 
 
-    public void getMeal(View listItem) {
-        Meal meal = (Meal) listItem.getTag();
-        Log.d("Meal Title: ", meal.getMealName());
-        Intent intent = new Intent (this, MealSelectedActivity.class); // could this link to java class adding cals to total?
-        intent.putExtra("meal", meal);
+    public void getExercise(View listItem) {
+        Exercise exercise = (Exercise) listItem.getTag();
+
+        Intent intent = new Intent (this, ExercisesSelectedActivity.class); // could this link to java class adding cals to total?
+        intent.putExtra("exercise", exercise);
         startActivity(intent);
     }
 

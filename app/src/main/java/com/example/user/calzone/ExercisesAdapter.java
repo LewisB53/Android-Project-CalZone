@@ -13,34 +13,32 @@ import java.util.ArrayList;
  * Created by user on 27/05/2017.
  */
 
-public class ExercisesAdapter extends ArrayAdapter<Meal> {
-    public ExercisesAdapter(Context context, ArrayList<Meal> meals) {
-        super(context, 0, meals);
+public class ExercisesAdapter extends ArrayAdapter<Exercise> {
+    public ExercisesAdapter(Context context, ArrayList<Exercise> exercises) {
+        super(context, 0, exercises);
     }
 
     @Override
     public View getView(int position, View listItemView, ViewGroup parent) {
 
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.meal_items, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.exercise_items, parent, false);
         }
 
-        Meal currentMeal = getItem(position);
+        Exercise currentExercise = getItem(position);
 
-        TextView mealname = (TextView) listItemView.findViewById(R.id.mealName);
-        mealname.setText(currentMeal.getMealName());
+        TextView exerciseName = (TextView) listItemView.findViewById(R.id.mealName);
+        exerciseName.setText(currentExercise.getExerciseName());
 
         TextView caloricvalue = (TextView) listItemView.findViewById(R.id.caloricvalue);
-        caloricvalue.setText(currentMeal.getCaloricValue().toString());
+        caloricvalue.setText(currentExercise.getCaloricValue().toString());
 
-        TextView mealtype = (TextView) listItemView.findViewById(R.id.exerciseDate);
-        mealtype.setText(currentMeal.getMealType());
+        TextView exerciseDate = (TextView) listItemView.findViewById(R.id.exerciseDate);
+        exerciseDate.setText(currentExercise.getExerciseDate());
 
-        listItemView.setTag(currentMeal);
+        listItemView.setTag(currentExercise);
 
         return listItemView;
     }
-
-
 
 }
