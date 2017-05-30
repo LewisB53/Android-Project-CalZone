@@ -18,7 +18,7 @@
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/mealtype"
+        app:layout_constraintRight_toLeftOf="@+id/exerciseDate"
         android:layout_marginRight="8dp"
         app:layout_constraintHorizontal_bias="0.66" />
 
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/mealtype"
+        android:id="@+id/exerciseDate"
         android:layout_width="83dp"
         android:layout_height="82dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -52,13 +52,14 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_light"
+        android:onClick="onEatButtonClicked"
         android:text="Eat it (Nom nom)"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/mealtype"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseDate"
         app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>

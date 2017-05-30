@@ -9,14 +9,12 @@ import android.view.View;
 import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 public class MealsActivity extends AppCompatActivity {
     SharedPreferences prefs;
-
     public ArrayList<Meal> list;
     private Gson gson;
 
@@ -34,10 +32,10 @@ public class MealsActivity extends AppCompatActivity {
         list = gson.fromJson(json, token.getType());
         Log.d("Here", list.toString());
 
-        if (list.isEmpty()) {
-            DefaultMeals defaultMeals = new DefaultMeals();
-            list.addAll( defaultMeals.getList());
-        }
+//        if (list.isEmpty()) {
+//            DefaultMeals defaultMeals = new DefaultMeals();
+//            list.addAll( defaultMeals.getList());
+//        }
 
         Intent intent = getIntent();
         Serializable extra = intent.getSerializableExtra("newMeal");
@@ -50,9 +48,9 @@ public class MealsActivity extends AppCompatActivity {
         // save list array to Shared Prefs
         SharedPreferences.Editor editor = this.prefs.edit();
         editor.putString("meals", this.gson.toJson(list));
-        editor.apply();
-        
+        editor.clear();
 
+        editor.apply();
 
 
         MealsAdapter mealAdapter = new MealsAdapter(this, list);
@@ -66,7 +64,7 @@ public class MealsActivity extends AppCompatActivity {
     public void getMeal(View listItem) {
         Meal meal = (Meal) listItem.getTag();
         Log.d("Meal Title: ", meal.getMealName());
-        Intent intent = new Intent (this, MealSelectedActivity.class); // could this link to java class adding cals to total?
+        Intent intent = new Intent (this, TrackerActivity.class); // could this link to java class adding cals to total?
         intent.putExtra("meal", meal);
         startActivity(intent);
     }
@@ -76,7 +74,10 @@ public class MealsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void onEatButtonClicked(View button) {
+        Intent intent = new Intent(this, TrackerActivity.class);
+        startActivity(intent);
+    }
 
 
 }

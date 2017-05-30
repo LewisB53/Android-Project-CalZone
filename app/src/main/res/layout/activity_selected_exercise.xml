@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <EditText
-        android:id="@+id/meal_type_text"
+        android:id="@+id/exercise_date_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -36,7 +36,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Meal Type"
+        android:hint="Exercise Date"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -77,8 +77,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/holo_orange_light"
-        android:onClick="onAddButtonClicked"
-        android:text="Add Noms"
+        android:onClick="onAddExerciseButtonClicked"
+        android:text="Add Workout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintLeft_toLeftOf="parent"

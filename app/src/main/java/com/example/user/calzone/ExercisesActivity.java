@@ -51,7 +51,7 @@ public class ExercisesActivity extends AppCompatActivity {
         // save list array to Shared Prefs
         SharedPreferences.Editor editor = this.prefs.edit();
         editor.putString("meals", this.gson.toJson(list));
-        editor.apply();
+//        editor.clear();
 
 
 
@@ -69,11 +69,6 @@ public class ExercisesActivity extends AppCompatActivity {
         Log.d("Meal Title: ", meal.getMealName());
         Intent intent = new Intent (this, MealSelectedActivity.class); // could this link to java class adding cals to total?
         intent.putExtra("meal", meal);
-        startActivity(intent);
-    }
-
-    public void onAddMealButtonClicked(View button) {
-        Intent intent = new Intent(this, MealSelectedActivity.class);
         startActivity(intent);
     }
 

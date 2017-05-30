@@ -35,7 +35,7 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/holo_orange_light"
         android:onClick="onAddMealButtonClicked"
-        android:text="Add Your own Noms"
+        android:text="Add Your own Workout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -10,12 +10,12 @@ public class Exercise implements Serializable {
 
     private String mealName;
     private int caloricValue;
-    private String mealType;
+    private String exerciseDate;
 
     public Exercise(String mealName, int caloricValue, String mealType) {
         this.mealName = mealName;
         this.caloricValue = caloricValue;
-        this.mealType = mealType;
+        this.exerciseDate = exerciseDate;
     }
 
     public String getMealName() {
@@ -26,7 +26,7 @@ public class Exercise implements Serializable {
         return caloricValue;
     }
 
-    public String getMealType() {
-        return mealType;
+    public String getExerciseDate() {
+        return exerciseDate;
     }
 }
