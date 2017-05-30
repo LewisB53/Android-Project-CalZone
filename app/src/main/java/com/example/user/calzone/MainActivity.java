@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button foodButton;
     private Button trackerButton;
+    private Button exercisesButton;
 
 
     @Override
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         foodButton = (Button)findViewById(R.id.foodButton);
         trackerButton = (Button)findViewById(R.id.trackerButton);
+        exercisesButton = (Button)findViewById(R.id.exercisesButton);
+
     }
 
 
@@ -30,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onTrackerButtonClicked(View button) {
         Intent intent = new Intent(this, TrackerActivity.class);
+        startActivity(intent);
+    }
+
+    public void onExercisesButtonClicked(View button) {
+        Intent intent = new Intent(this, ExercisesActivity.class);
         startActivity(intent);
     }
 

@@ -7,14 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MealsActivity extends AppCompatActivity {
+public class ExercisesActivity extends AppCompatActivity {
+
     SharedPreferences prefs;
 
     public ArrayList<Meal> list;
@@ -51,7 +52,7 @@ public class MealsActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = this.prefs.edit();
         editor.putString("meals", this.gson.toJson(list));
         editor.apply();
-        
+
 
 
 
@@ -75,8 +76,5 @@ public class MealsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MealSelectedActivity.class);
         startActivity(intent);
     }
-
-
-
 
 }
