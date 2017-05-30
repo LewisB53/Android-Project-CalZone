@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MealsActivity" />
-        <activity android:name=".MealSelectedActivity"></activity>
+        <activity android:name=".MealSelectedActivity" />
+        <activity android:name=".TrackerActivity"></activity>
     </application>
 
 </manifest>

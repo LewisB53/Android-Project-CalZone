@@ -17,6 +17,7 @@ public class DefaultMeals {
         list.add(new Meal("Chicken 'n' Chips", 700, "Dinner"));
     }
 
+
     public ArrayList<Meal> getList() {
         return new ArrayList<Meal>(list);
     }

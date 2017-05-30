@@ -15,25 +15,45 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MealsActivity extends AppCompatActivity {
-    public ArrayList<Meal> list = new ArrayList<Meal>();
-    private SharedPreferences prefs;
-    private Gson gson = new Gson();
+    SharedPreferences mPrefs;
 
+    public ArrayList<Meal> list;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meals_list);
 
-        DefaultMeals defaultMeals = new DefaultMeals();
-        list.addAll( defaultMeals.getList());
+        this.mPrefs = getPreferences(MODE_PRIVATE);
+
+        // get list of Meals from Shared prefs.
+        this.gson = new Gson();
+        String json = mPrefs.getString("meals", "[]");
+        TypeToken<ArrayList<Meal>> token = new TypeToken<ArrayList<Meal>>(){};
+        list = gson.fromJson(json, token.getType());
+        Log.d("Here", list.toString());
+
+        if (list.isEmpty()) {
+            DefaultMeals defaultMeals = new DefaultMeals();
+            list.addAll( defaultMeals.getList());
+        }
 
         Intent intent = getIntent();
         Serializable extra = intent.getSerializableExtra("newMeal");
         if (null != extra) {
-            Meal newMeal = (Meal)extra;
+            Meal newMeal = (Meal) extra;
             list.add(newMeal);
         }
+
+
+        // save list array to Shared Prefs
+        SharedPreferences.Editor editor = this.mPrefs.edit();
+        editor.putString("meals", this.gson.toJson(list));
+        editor.apply();
+        
+
+
 
         MealsAdapter mealAdapter = new MealsAdapter(this, list);
 
@@ -52,9 +72,11 @@ public class MealsActivity extends AppCompatActivity {
     }
 
     public void onAddMealButtonClicked(View button) {
-        list.add(new Meal("Added 'n' cool", 400, "Dinner"));
-
         Intent intent = new Intent(this, MealSelectedActivity.class);
         startActivity(intent);
     }
+
+
+
+
 }
