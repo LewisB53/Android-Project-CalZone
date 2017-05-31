@@ -21,9 +21,6 @@ public class MealsActivity extends AppCompatActivity {
     public ArrayList<Meal> list;
     private Gson gson;
 
-    EditText addedMealEditText;
-    EditText caloricValueEditText;
-    EditText mealTypeEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +68,7 @@ public class MealsActivity extends AppCompatActivity {
     public void onEatButtonClicked(View listItem) {
 
         Toast.makeText(this,"You Ate it", Toast.LENGTH_LONG).show();
-    Intent intent = new Intent(this, MealsActivity.class);
+    Intent intent = new Intent(this, TrackerActivity.class);
         startActivity(intent);
 }
 
