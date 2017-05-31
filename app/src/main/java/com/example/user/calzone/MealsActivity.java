@@ -36,10 +36,10 @@ public class MealsActivity extends AppCompatActivity {
         list = gson.fromJson(json, token.getType());
         Log.d("Here", list.toString());
 
-        if (list.isEmpty()) {
-            DefaultMeals defaultMeals = new DefaultMeals();
-            list.addAll( defaultMeals.getList());
-        }
+//        if (list.isEmpty()) {
+//            DefaultMeals defaultMeals = new DefaultMeals();
+//            list.addAll( defaultMeals.getList());
+//        }
 
         Intent intent = getIntent();
         Serializable extra = intent.getSerializableExtra("newMeal");
