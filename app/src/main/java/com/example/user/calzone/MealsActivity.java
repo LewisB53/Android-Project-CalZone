@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.Serializable;
@@ -17,6 +20,10 @@ public class MealsActivity extends AppCompatActivity {
     SharedPreferences prefs;
     public ArrayList<Meal> list;
     private Gson gson;
+
+    EditText addedMealEditText;
+    EditText caloricValueEditText;
+    EditText mealTypeEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +39,10 @@ public class MealsActivity extends AppCompatActivity {
         list = gson.fromJson(json, token.getType());
         Log.d("Here", list.toString());
 
-//        if (list.isEmpty()) {
-//            DefaultMeals defaultMeals = new DefaultMeals();
-//            list.addAll( defaultMeals.getList());
-//        }
+        if (list.isEmpty()) {
+            DefaultMeals defaultMeals = new DefaultMeals();
+            list.addAll( defaultMeals.getList());
+        }
 
         Intent intent = getIntent();
         Serializable extra = intent.getSerializableExtra("newMeal");
@@ -61,21 +68,15 @@ public class MealsActivity extends AppCompatActivity {
 
 
 
-    public void getMeal(View listItem) {
-        Meal meal = (Meal) listItem.getTag();
-        Log.d("Meal Title: ", meal.getMealName());
-        Intent intent = new Intent (this, TrackerActivity.class); // could this link to java class adding cals to total?
-        intent.putExtra("meal", meal);
+    public void onEatButtonClicked(View listItem) {
+
+        Toast.makeText(this,"You Ate it", Toast.LENGTH_LONG).show();
+    Intent intent = new Intent(this, MealsActivity.class);
         startActivity(intent);
-    }
+}
 
     public void onAddMealButtonClicked(View button) {
         Intent intent = new Intent(this, MealSelectedActivity.class);
-        startActivity(intent);
-    }
-
-    public void onEatButtonClicked(View button) {
-        Intent intent = new Intent(this, TrackerActivity.class);
         startActivity(intent);
     }
 

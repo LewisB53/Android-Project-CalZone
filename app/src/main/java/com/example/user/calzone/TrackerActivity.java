@@ -18,49 +18,25 @@ import java.util.ArrayList;
 
 public class TrackerActivity extends AppCompatActivity {
 
-    SharedPreferences eatPrefs;
-    public ArrayList<Meal> list;
-    private Gson eatGson;
+    EditText addedMealEditText;
+    EditText caloricValueEditText;
+    EditText mealTypeEditText;
+    SharedPreferences prefs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.meals_list);
-
-        this.eatPrefs = getPreferences(MODE_PRIVATE);
-
-        // get list of Meals from Shared prefs.
-        this.eatGson = new Gson();
-        String json = eatPrefs.getString("meals", "[]");
-        TypeToken<ArrayList<Meal>> token = new TypeToken<ArrayList<Meal>>(){};
-        list = eatGson.fromJson(json, token.getType());
-        Log.d("Here", list.toString());
-
-        if (list.isEmpty()) {
-
-        }
-
-        Intent intent = getIntent();
-        Serializable extra = intent.getSerializableExtra("newMeal");
-        if (null != extra) {
-            Meal newMeal = (Meal) extra;
-            list.add(newMeal);
-        }
+        setContentView(R.layout.activity_tracker);
 
 
-        // save list array to Shared Prefs
-        SharedPreferences.Editor editor = this.eatPrefs.edit();
-        editor.putString("meals", this.eatGson.toJson(list));
-//        editor.clear();
+        this.prefs = getPreferences(MODE_PRIVATE);
 
-        editor.apply();
-
-
-        MealsAdapter mealAdapter = new MealsAdapter(this, list);
-
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(mealAdapter);
+        addedMealEditText = (EditText)findViewById(R.id.meal_name_text);
+        caloricValueEditText = (EditText)findViewById(R.id.caloric_value_text);
+        mealTypeEditText = (EditText)findViewById(R.id.meal_type_text);
     }
+
 
 
 

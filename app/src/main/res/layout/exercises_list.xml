@@ -7,7 +7,7 @@
     tools:context="com.example.user.calzone.ExercisesActivity">
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/exerciseList"
         android:layout_width="369dp"
         android:layout_height="366dp"
         android:layout_marginBottom="8dp"

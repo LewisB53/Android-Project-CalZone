@@ -33,7 +33,7 @@ public class MealsAdapter extends ArrayAdapter<Meal> {
         TextView caloricvalue = (TextView) listItemView.findViewById(R.id.caloricvalue);
         caloricvalue.setText(currentMeal.getCaloricValue().toString());
 
-        TextView mealtype = (TextView) listItemView.findViewById(R.id.exerciseDate);
+        TextView mealtype = (TextView) listItemView.findViewById(R.id.mealType);
         mealtype.setText(currentMeal.getMealType());
 
         listItemView.setTag(currentMeal);
