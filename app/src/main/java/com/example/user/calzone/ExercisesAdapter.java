@@ -27,13 +27,13 @@ public class ExercisesAdapter extends ArrayAdapter<Exercise> {
 
         Exercise currentExercise = getItem(position);
 
-        TextView exerciseName = (TextView) listItemView.findViewById(R.id.mealName);
+        TextView exerciseName = (TextView) listItemView.findViewById(R.id.exerciseName);
         exerciseName.setText(currentExercise.getExerciseName());
 
-        TextView caloricvalue = (TextView) listItemView.findViewById(R.id.caloricvalue);
-        caloricvalue.setText(currentExercise.getCaloricValue().toString());
+        TextView caloricValue = (TextView) listItemView.findViewById(R.id.caloricvalue);
+        caloricValue.setText(currentExercise.getCaloricValue().toString());
 
-        TextView exerciseDate = (TextView) listItemView.findViewById(R.id.mealType);
+        TextView exerciseDate = (TextView) listItemView.findViewById(R.id.exerciseDate);
         exerciseDate.setText(currentExercise.getExerciseDate());
 
         listItemView.setTag(currentExercise);

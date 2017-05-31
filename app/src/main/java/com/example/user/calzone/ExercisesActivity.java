@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -15,24 +16,30 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ExercisesActivity extends AppCompatActivity {
-    public ArrayList<Exercise> list;
+    public ArrayList<Exercise> exercises;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercises_list);
 
+        exercises = new ArrayList<Exercise>();
 
-        if (list.isEmpty()) {
             ExerciseList exerciseList = new ExerciseList();
-            list.addAll( exerciseList.getList());
-        }
+            exercises.addAll( exerciseList.getList());
 
 
-        ExercisesAdapter exercisesAdapter = new ExercisesAdapter(this,list);
+        ExercisesAdapter exercisesAdapter = new ExercisesAdapter(this,exercises);
 
         ListView listView = (ListView) findViewById(R.id.exerciseList);
         listView.setAdapter(exercisesAdapter);
     }
 
+
+    public void getExercise(View listItem) {
+
+        Toast.makeText(this,"Good job you are less repulsive!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
