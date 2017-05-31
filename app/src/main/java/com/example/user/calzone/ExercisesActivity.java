@@ -27,7 +27,7 @@ public class ExercisesActivity extends AppCompatActivity {
 
 
     public void getExercise(View listItem) {
-        Toast.makeText(this,"Good job you are less repulsive!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Good job! You are less repulsive!", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

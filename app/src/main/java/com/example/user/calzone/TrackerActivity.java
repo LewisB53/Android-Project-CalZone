@@ -1,29 +1,22 @@
 package com.example.user.calzone;
-
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.view.View;
+import android.widget.Toast;
 
 public class TrackerActivity extends AppCompatActivity {
-
-    EditText addedMealEditText;
-    EditText caloricValueEditText;
-    EditText mealTypeEditText;
-    SharedPreferences prefs;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracker);
-
-
-        this.prefs = getPreferences(MODE_PRIVATE);
-
-        addedMealEditText = (EditText)findViewById(R.id.meal_name_text);
-        caloricValueEditText = (EditText)findViewById(R.id.caloric_value_text);
-        mealTypeEditText = (EditText)findViewById(R.id.meal_type_text);
     }
 
+
+    public void easterEgg(View button) {
+        Intent intent = new Intent(this, MainActivity.class);
+        Toast.makeText(this,"Easter egg found!", Toast.LENGTH_LONG).show();
+        startActivity(intent);
+    }
 }
