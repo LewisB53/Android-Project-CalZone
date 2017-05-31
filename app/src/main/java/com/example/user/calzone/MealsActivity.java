@@ -6,10 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.Serializable;
@@ -36,10 +34,10 @@ public class MealsActivity extends AppCompatActivity {
         list = gson.fromJson(json, token.getType());
         Log.d("Here", list.toString());
 
-//        if (list.isEmpty()) {
-//            DefaultMeals defaultMeals = new DefaultMeals();
-//            list.addAll( defaultMeals.getList());
-//        }
+//      if (list.isEmpty()) {
+//           DefaultMeals defaultMeals = new DefaultMeals();
+//           list.addAll( defaultMeals.getList());
+//       }
 
         Intent intent = getIntent();
         Serializable extra = intent.getSerializableExtra("newMeal");
@@ -52,25 +50,19 @@ public class MealsActivity extends AppCompatActivity {
         // save list array to Shared Prefs
         SharedPreferences.Editor editor = this.prefs.edit();
         editor.putString("meals", this.gson.toJson(list));
-        editor.clear();
-
         editor.apply();
 
-
         MealsAdapter mealAdapter = new MealsAdapter(this, list);
-
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(mealAdapter);
     }
 
 
-
     public void onEatButtonClicked(View listItem) {
-
-        Toast.makeText(this,"You Ate it", Toast.LENGTH_LONG).show();
-    Intent intent = new Intent(this, TrackerActivity.class);
+        Toast.makeText(this,"You Ate it all! Better Exercise Fatty!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-}
+    }
 
     public void onAddMealButtonClicked(View button) {
         Intent intent = new Intent(this, MealSelectedActivity.class);

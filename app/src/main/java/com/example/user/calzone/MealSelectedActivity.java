@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 
 
@@ -37,9 +36,7 @@ public class MealSelectedActivity extends AppCompatActivity {
         String caloricValue = caloricValueEditText.getText().toString();
         String addedMealType = mealTypeEditText.getText().toString();
 
-
         Meal meal = new Meal(addedMeal, Integer.parseInt(caloricValue), addedMealType);
-
 
         SharedPreferences.Editor prefsEditor = prefs.edit();
         Gson gson = new Gson();

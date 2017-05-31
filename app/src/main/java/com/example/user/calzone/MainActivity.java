@@ -21,10 +21,7 @@ public class MainActivity extends AppCompatActivity {
         foodButton = (Button)findViewById(R.id.foodButton);
         trackerButton = (Button)findViewById(R.id.trackerButton);
         exercisesButton = (Button)findViewById(R.id.exercisesButton);
-
     }
-
-
 
     public void onFoodButtonClicked(View button) {
         Intent intent = new Intent(this, MealsActivity.class);
