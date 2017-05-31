@@ -8,6 +8,24 @@
     >
 
     <TextView
+        android:id="@+id/mealDate"
+        android:layout_width="118dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <TextView
         android:id="@+id/mealName"
         android:layout_width="118dp"
         android:layout_height="76dp"
@@ -55,11 +73,11 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_light"
         android:onClick="onEatButtonClicked"
-        android:text="Eat it (Nom nom)"
+        android:text="Eat This Again (Nom nom)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exerciseDate"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.07999998" />
 </android.support.constraint.ConstraintLayout>

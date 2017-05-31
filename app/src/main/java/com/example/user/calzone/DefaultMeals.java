@@ -12,9 +12,9 @@ public class DefaultMeals {
 
     public DefaultMeals() {
         list = new ArrayList<Meal>();
-        list.add(new Meal("Champions Brekkie", 550, "Breakfast"));
-        list.add(new Meal("The GutBuster", 800, "Lunch"));
-        list.add(new Meal("Chicken 'n' Chips", 700, "Dinner"));
+        list.add(new Meal("Champions Brekkie", 550, "Breakfast","27/05/2017"));
+        list.add(new Meal("The GutBuster", 800, "Lunch","27/05/2017"));
+        list.add(new Meal("Chicken 'n' Chips", 700, "Dinner","27/05/2017"));
     }
 
 

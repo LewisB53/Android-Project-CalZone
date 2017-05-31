@@ -14,6 +14,8 @@ public class MealSelectedActivity extends AppCompatActivity {
     EditText addedMealEditText;
     EditText caloricValueEditText;
     EditText mealTypeEditText;
+    EditText mealDateEditText;
+
     SharedPreferences prefs;
 
 
@@ -27,6 +29,8 @@ public class MealSelectedActivity extends AppCompatActivity {
         addedMealEditText = (EditText)findViewById(R.id.meal_name_text);
         caloricValueEditText = (EditText)findViewById(R.id.caloric_value_text);
         mealTypeEditText = (EditText)findViewById(R.id.meal_type_text);
+        mealDateEditText = (EditText)findViewById(R.id.date_text);
+
     }
 
 
@@ -35,8 +39,10 @@ public class MealSelectedActivity extends AppCompatActivity {
         String addedMeal = addedMealEditText.getText().toString();
         String caloricValue = caloricValueEditText.getText().toString();
         String addedMealType = mealTypeEditText.getText().toString();
+        String mealDate = mealDateEditText.getText().toString();
 
-        Meal meal = new Meal(addedMeal, Integer.parseInt(caloricValue), addedMealType);
+
+        Meal meal = new Meal(addedMeal, Integer.parseInt(caloricValue), addedMealType, mealDate);
 
         SharedPreferences.Editor prefsEditor = prefs.edit();
         Gson gson = new Gson();
@@ -44,7 +50,7 @@ public class MealSelectedActivity extends AppCompatActivity {
         prefsEditor.putString("meal", json);
         prefsEditor.apply();
 
-        Toast.makeText(this,"Meal Added", Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Meal scoffed!", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MealsActivity.class);
 
         intent.putExtra("newMeal", meal);

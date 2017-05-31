@@ -11,11 +11,14 @@ public class Meal implements Serializable {
     private String mealName;
     private int caloricValue;
     private String mealType;
+    private String mealDate;
 
-    public Meal(String mealName, int caloricValue, String mealType) {
+    public Meal(String mealName, int caloricValue, String mealType, String mealDate) {
         this.mealName = mealName;
         this.caloricValue = caloricValue;
         this.mealType = mealType;
+        this.mealDate = mealDate;
+
     }
 
     public String getMealName() {
@@ -29,5 +32,10 @@ public class Meal implements Serializable {
     public String getMealType() {
         return mealType;
     }
+
+    public String getMealDate() {
+        return mealDate;
+    }
+
 
 }
